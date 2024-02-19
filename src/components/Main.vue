@@ -7,7 +7,6 @@
       <button @click="stopCamera">Stop Camera</button>
       <p>PEOPLE COUNT: {{ peopleCount }}</p>
     </div>
-    <!-- Removendo a segunda seção de câmera -->
     <!-- <div>
       <canvas id="srcimg" ref="srcimg" class="imgcanvas"></canvas>
       <canvas id="dstimg" ref="dstimg" class="imgcanvas"></canvas>
@@ -74,6 +73,7 @@ export default {
         this.faceClass.detectMultiScale(gray, faces);
         this.peopleCount = faces.size();
         for (let i = 0; i < faces.size(); i++) {
+          // revisar esse for para ver se está correto
           let roiGray = gray.roi(faces.get(i));
           let roiSrc = srcMat.roi(faces.get(i));
           let point1 = new this.$cv.Point(faces.get(i).x, faces.get(i).y);
@@ -121,6 +121,7 @@ export default {
   }
 }
 </script>
+
 
 <style scoped>
 .imgcanvas {
